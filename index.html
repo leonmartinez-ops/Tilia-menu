@@ -17,10 +17,12 @@ button{font:inherit}
 .topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(247,241,232,.90);backdrop-filter:blur(18px);border-bottom:1px solid rgba(19,127,143,.08)}
 .brand{display:flex;align-items:center;gap:10px}.brand img{width:58px;height:58px;object-fit:contain;border-radius:50%;background:#fff}.brand small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-dark);font-weight:800}
 .quick{display:flex;gap:7px;overflow:auto;max-width:66vw;scrollbar-width:none}.quick::-webkit-scrollbar{display:none}.quick button{border:0;background:rgba(255,255,255,.8);color:var(--teal-dark);border-radius:999px;padding:10px 13px;font-size:11px;font-weight:750;white-space:nowrap;box-shadow:inset 0 0 0 1px var(--line)}.quick button.active{background:var(--teal);color:#fff;box-shadow:none}
-.hero{min-height:72svh;padding:32px clamp(18px,5vw,68px) 42px;display:grid;grid-template-columns:1fr;align-items:end;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;width:54vw;height:54vw;max-width:520px;max-height:520px;border-radius:50%;background:rgba(19,127,143,.08);right:-17vw;top:6vh}.hero:after{content:"";position:absolute;width:32vw;height:32vw;border-radius:50%;border:1px solid rgba(19,127,143,.15);left:-9vw;bottom:3vh}
-.hero-inner{position:relative;z-index:2;max-width:980px;width:100%;margin:0 auto}.hero-logo{width:116px;height:116px;object-fit:contain;border-radius:50%;background:#fff;box-shadow:0 16px 44px rgba(13,95,109,.08)}
-.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(48px,9vw,96px);font-weight:400;line-height:.92;letter-spacing:-.045em;margin:28px 0 0;max-width:900px}.hero p{max-width:460px;font-size:14px;line-height:1.55;color:var(--muted);margin:18px 0 0}.hero .hint{margin-top:28px;display:inline-flex;align-items:center;gap:10px;color:var(--teal-dark);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero .hint i{display:block;width:36px;height:1px;background:var(--teal)}
+.hero{height:100svh;min-height:620px;position:relative;overflow:hidden;background:#10282c;color:#fff}
+.hero-slider{position:absolute;inset:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}.hero-slider::-webkit-scrollbar{display:none}
+.hero-slide{position:relative;flex:0 0 100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always}.hero-slide img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+.hero-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,24,27,.28) 0%,rgba(7,24,27,0) 38%,rgba(7,24,27,.12) 60%,rgba(7,24,27,.78) 100%);pointer-events:none}
+.hero-overlay{position:absolute;z-index:3;inset:0;padding:max(24px,env(safe-area-inset-top)) clamp(20px,5vw,64px) max(34px,env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:space-between;pointer-events:none}.hero-logo{width:104px;height:104px;object-fit:contain;border-radius:50%;background:#fff;box-shadow:0 14px 44px rgba(0,0,0,.18)}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}.hero-copy{max-width:720px}.hero-kicker{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(48px,8vw,92px);font-weight:400;line-height:.92;letter-spacing:-.045em;margin:10px 0 0;text-shadow:0 2px 24px rgba(0,0,0,.22)}.hero .hint{margin-top:18px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero-dots{display:flex;gap:8px;pointer-events:auto;padding-bottom:4px}.hero-dot{width:9px;height:9px;border:0;border-radius:50%;padding:0;background:rgba(255,255,255,.42)}.hero-dot.active{background:#fff;transform:scale(1.25)}
 .featured{padding:18px 0 40px}.section-head{padding:0 clamp(18px,5vw,68px);max-width:1120px;margin:0 auto 18px}.eyebrow{font-size:10px;letter-spacing:.20em;text-transform:uppercase;color:var(--teal);font-weight:850}.section-head h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(36px,6vw,68px);font-weight:400;line-height:1;margin:7px 0 0;letter-spacing:-.035em}
 .carousel{display:flex;gap:clamp(12px,2.5vw,28px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:clamp(18px,5vw,68px);padding:0 clamp(18px,5vw,68px) 18px;scrollbar-width:none}.carousel::-webkit-scrollbar{display:none}
 .slide{flex:0 0 min(86vw,760px);height:min(78svh,760px);min-height:590px;scroll-snap-align:start;border-radius:42px;overflow:hidden;position:relative;background:var(--paper);box-shadow:0 24px 70px rgba(16,55,61,.12);border:1px solid rgba(19,127,143,.10)}
@@ -32,13 +34,24 @@ button{font:inherit}
 .peek{padding:6px clamp(18px,5vw,68px) 0;max-width:1120px;margin:0 auto;color:var(--teal-dark);font-size:11px;display:flex;align-items:center;gap:8px}.peek:before{content:"";width:26px;height:1px;background:var(--teal)}
 .menu-section{padding:70px clamp(18px,5vw,68px);background:var(--paper)}.menu-wrap{max-width:1120px;margin:0 auto}.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}.menu-card{background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden}.menu-card .imgbox{aspect-ratio:1.05/1;background:#f4eee6;display:flex;align-items:center;justify-content:center;padding:12px}.menu-card img{width:100%;height:100%;object-fit:contain}.menu-card .txt{padding:15px 16px 18px}.menu-card h4{font-family:Georgia,"Times New Roman",serif;font-size:clamp(20px,3vw,28px);font-weight:400;line-height:1.02;margin:0}.menu-card span{display:block;margin-top:8px;color:var(--teal);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .footer{padding:60px 20px 100px;text-align:center;background:var(--teal);color:#fff}.footer img{width:126px;height:126px;object-fit:contain;border-radius:50%;background:#fff}.footer p{font-family:Georgia,"Times New Roman",serif;font-size:28px;line-height:1.08;margin:18px auto 0;max-width:420px}.footer small{display:block;margin-top:12px;opacity:.75}
-.dock{position:fixed;z-index:80;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));width:min(calc(100% - 24px),520px);display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:7px;background:rgba(18,48,53,.92);backdrop-filter:blur(16px);border-radius:23px;box-shadow:0 16px 45px rgba(0,0,0,.18)}.dock button{border:0;background:transparent;color:#dff0f2;padding:12px 7px;border-radius:16px;font-size:11px;font-weight:780}.dock button.active{background:#fff;color:var(--teal-dark)}
-@media (min-width:800px){.topbar{padding-left:40px;padding-right:40px}.hero{min-height:68vh}.menu-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.slide{flex-basis:min(68vw,760px)}}
-@media (max-width:560px){.topbar{align-items:flex-start}.brand small{display:none}.brand img{width:52px;height:52px}.quick{max-width:74vw}.hero{min-height:70svh;padding-top:26px}.hero-logo{width:94px;height:94px}.slide{flex-basis:88vw;min-height:560px;height:72svh}.slide h3{font-size:42px}.photo-stage{height:64%}.menu-grid{gap:12px}.menu-card{border-radius:22px}.menu-card .txt{padding:12px}}
+.dock{position:fixed;z-index:80;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));width:min(calc(100% - 24px),520px);display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:7px;background:rgba(18,48,53,.92);backdrop-filter:blur(16px);border-radius:23px;box-shadow:0 16px 45px rgba(0,0,0,.18);transition:opacity .25s ease,transform .25s ease}.dock button{border:0;background:transparent;color:#dff0f2;padding:12px 7px;border-radius:16px;font-size:11px;font-weight:780}.dock button.active{background:#fff;color:var(--teal-dark)}body.hero-visible .dock{opacity:0;pointer-events:none;transform:translate(-50%,18px)}
+@media (min-width:800px){.topbar{padding-left:40px;padding-right:40px}.menu-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.slide{flex-basis:min(68vw,760px)}}
+@media (max-width:560px){.topbar{align-items:flex-start}.brand small{display:none}.brand img{width:52px;height:52px}.quick{max-width:74vw}.hero{min-height:100svh}.hero-overlay{padding-left:20px;padding-right:20px}.hero-logo{width:86px;height:86px}.hero-bottom{display:block}.hero h1{font-size:46px}.hero-dots{margin-top:22px}.slide{flex-basis:88vw;min-height:560px;height:72svh}.slide h3{font-size:42px}.photo-stage{height:64%}.menu-grid{gap:12px}.menu-card{border-radius:22px}.menu-card .txt{padding:12px}}
 </style>
 </head>
 <body>
 <div class="page">
+  <section class="hero" id="inicio" aria-label="Galería de especiales Tilia">
+    <div class="hero-slider" id="heroSlider"></div>
+    <div class="hero-overlay">
+      <img class="hero-logo" src="assets/tilia-logo.jpg" alt="Tilia Café">
+      <div class="hero-bottom">
+        <div class="hero-copy"><div class="hero-kicker">Menú visual</div><h1 id="heroTitle">Huevos con machaca</h1><div class="hint">Desliza para ver los especiales</div></div>
+        <div class="hero-dots" id="heroDots" aria-label="Diapositivas"></div>
+      </div>
+    </div>
+  </section>
+
   <header class="topbar">
     <div class="brand"><img src="assets/tilia-logo.jpg" alt="Tilia Café"><small>Menú digital</small></div>
     <nav class="quick" aria-label="Categorías">
@@ -47,15 +60,6 @@ button{font:inherit}
       <button data-target="bebidas">Bebidas</button>
     </nav>
   </header>
-
-  <section class="hero" id="inicio">
-    <div class="hero-inner">
-      <img class="hero-logo" src="assets/tilia-logo.jpg" alt="Tilia Café">
-      <h1>¿Qué se te<br>antoja hoy?</h1>
-      <p>Descubre los especiales de Tilia deslizando de forma natural. Las fotografías se muestran completas, sin recortes.</p>
-      <div class="hint"><i></i> desliza para explorar</div>
-    </div>
-  </section>
 
   <section class="featured" id="destacados">
     <div class="section-head"><div class="eyebrow">Especiales</div><h2>Explora Tilia</h2></div>
@@ -78,6 +82,24 @@ const products=[
  {name:'Horchata Tilia',cat:'Bebidas',img:'assets/horchata-tilia.jpg'},
  {name:'Jamaicada',cat:'Bebidas',img:'assets/jamaicada.jpg'}
 ];
+const heroSlider=document.getElementById('heroSlider');
+const heroDots=document.getElementById('heroDots');
+const heroTitle=document.getElementById('heroTitle');
+heroSlider.innerHTML=products.map((p,i)=>`<article class="hero-slide"><img src="${p.img}" alt="${p.name}" ${i===0?'fetchpriority="high"':'loading="eager"'}></article>`).join('');
+heroDots.innerHTML=products.map((p,i)=>`<button class="hero-dot${i===0?' active':''}" type="button" aria-label="Ver ${p.name}" data-index="${i}"></button>`).join('');
+let heroIndex=0;
+let heroTimer;
+let scrollTimer;
+function showHero(index,scroll=true){heroIndex=(index+products.length)%products.length;if(scroll)heroSlider.scrollTo({left:heroSlider.clientWidth*heroIndex,behavior:'smooth'});heroTitle.textContent=products[heroIndex].name;document.querySelectorAll('.hero-dot').forEach((dot,i)=>dot.classList.toggle('active',i===heroIndex))}
+function startHero(){clearInterval(heroTimer);heroTimer=setInterval(()=>showHero(heroIndex+1),4200)}
+heroDots.addEventListener('click',event=>{const dot=event.target.closest('.hero-dot');if(!dot)return;showHero(Number(dot.dataset.index));startHero()});
+heroSlider.addEventListener('scroll',()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>showHero(Math.round(heroSlider.scrollLeft/heroSlider.clientWidth),false),100)},{passive:true});
+heroSlider.addEventListener('pointerdown',()=>clearInterval(heroTimer),{passive:true});
+heroSlider.addEventListener('pointerup',startHero,{passive:true});
+document.addEventListener('visibilitychange',()=>document.hidden?clearInterval(heroTimer):startHero());
+new IntersectionObserver(([entry])=>document.body.classList.toggle('hero-visible',entry.isIntersecting),{threshold:.55}).observe(document.getElementById('inicio'));
+document.body.classList.add('hero-visible');
+startHero();
 const carousel=document.getElementById('carousel');
 carousel.innerHTML=products.map(p=>`<article class="slide" data-cat="${p.cat}"><div class="slide-copy"><span class="tag">${p.cat}</span><h3>${p.name}</h3><div class="micro">Especial Tilia</div></div><div class="photo-stage"><img src="${p.img}" alt="${p.name}" loading="eager"></div></article>`).join('');
 const card=p=>`<article class="menu-card"><div class="imgbox"><img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="txt"><h4>${p.name}</h4><span>${p.cat}</span></div></article>`;
